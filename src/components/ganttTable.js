@@ -64,12 +64,12 @@ export function GanttTable({}) {
         for (let valor in tasks) {
             let llave = tasks[valor];
             elementosHijo.push(
-                <div onClick={()=> reubiacionActividad(valor)} className="bordes resaltar" style={{height: '50px', padding: '20px', background: 'gold', margin: '10px', display: 'flex', width: '300px'}} key={valor}>
-                    <p style={{width: 'max-content'}}>{valor}</p>
+                <div onClick={()=> reubiacionActividad(valor)} className="resaltar color1" style={{height: '50px', padding: '20px', margin: '10px', display: 'flex', width: '200px'}} key={valor}>
+                    <p className="bordes" style={{width: 'max-content'}}>{valor}</p>
                 </div>   
             )
         }
-        return  <div className="color3" style={{display: 'block', borderTopLeftRadius: '0.3em', borderBottomLeftRadius: '0.3em'}}>
+        return  <div className="color3" style={{display: 'block', borderTopLeftRadius: '0.3em', borderBottomLeftRadius: '0.3em', paddingLeft: '20px', paddingRight: '20px', marginRight: '10px'}}>
                     {elementosHijo}
                     {<CreateSelect name={'meses'} value={vistaMes} options={retornarMesesDelAno()} event={(event) => mostrarAno(event.target.value)}/>}
                 </div>
@@ -178,12 +178,21 @@ export function GanttTable({}) {
                 }
                 if(monthName!==currentMonth){
                 currentMonth=monthName;
-                elementosPadre.push(<div key={`${u}`} style={{display:'block'}}>{elementosHijo}<p className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p><p className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}} ref={refs[currentMonth]}>{currentMonth}</p></div>)
+                elementosPadre.push(<div key={`${u}`} style={{display:'block'}}>{elementosHijo}<p className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p><p className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}} ref={refs[currentMonth]}>{currentMonth}gi</p></div>)
                 } else {
                 elementosPadre.push(<div key={`${u}`} style={{display:'block'}}>{elementosHijo}<p className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p></div>)
                 }
             }
-            return <><FechaSelector fechaInicial={anoEnUso+fechaInicio} onFechaChange={(nuevaFecha)=>nuevaFechaInicio(nuevaFecha)}/><div className="color5 bordes" style={{display:'flex',margin:'20px'}}>{soloLLaves(tasks)}<div className="scroll" style={{paddingRight:'10px',paddingLeft:'10px',display:'flex',width:'80%'}}>{elementosPadre}</div></div><input className="slider" type="range" min="20" max="300" value={value} onChange={handleChange}/><ModalUser isOpen={modalIsOpen} cerrarModal={cerrarModal} contenido={modalContent}/></>
+            return  <>
+                        <FechaSelector style={{position: 'sticky', top: 0}} fechaInicial={anoEnUso+fechaInicio} onFechaChange={(nuevaFecha)=>nuevaFechaInicio(nuevaFecha)}/>
+                        <div className="scroll" style={{height: '80vh'}}>
+                            <div className="color5 bordes" style={{display:'flex',margin:'20px'}}>{soloLLaves(tasks)}
+                                <div className="scroll" style={{paddingRight:'10px',paddingLeft:'10px',display:'flex',width:'80%'}}>{elementosPadre}</div>
+                            </div>
+                            <ModalUser isOpen={modalIsOpen} cerrarModal={cerrarModal} contenido={modalContent}/>
+                        </div>
+                        <input className="slider" type="range" min="20" max="300" value={value} onChange={handleChange}/>
+                    </>
             }
     }
     

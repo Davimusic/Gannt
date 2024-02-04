@@ -36,6 +36,10 @@ H2{
   font-size: 2.5vh;
 }
 
+p{
+  font-size: 3.5vh;
+}
+
 .botones{
   background: rgb(0, 0, 0);
   border-radius: 0.7em;
@@ -145,13 +149,13 @@ body {
 }
 
 .resaltar{
-  background: rgba(0, 0, 0, 0.295);
+  background: rgba(0, 0, 0, 0);
   transition: 0.5s;
   border-radius: 0px;
 }
 
 .resaltar:hover{
-  background: #0000007c;
+  background: #ddbe0e;
   border-radius: 0.7em;
 }
 
@@ -205,14 +209,6 @@ body {
   display: none;  /* Para Chrome, Safari y Opera */
 }
 
-.resaltar {
-  cursor: pointer;
-}
-
-.resaltar:hover {
-  transition: 0.2s;
-  background-color: #404041;
-}
 
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
