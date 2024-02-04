@@ -1,0 +1,12 @@
+.selectFiltro {
+    position: fixed;
+    top: 1vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff; /* Cambia el color del texto */
+    padding: 1vh 2vh; /* Añade relleno al elemento */
+    border-radius: 5px; /* Agrega esquinas redondeadas */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra */
+    font-size: 18px; /* Cambia el tamaño del texto */
+}
+

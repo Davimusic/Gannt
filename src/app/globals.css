@@ -1,0 +1,415 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+
+H1{
+  font-size: 5vh;
+}
+
+H2{
+  font-size: 2.5vh;
+}
+
+.botones{
+  background: rgb(0, 0, 0);
+  border-radius: 0.7em;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 10px;
+  margin-right: 2px;
+  border: solid white 1px;
+  color: white;
+  padding: 5px;
+  font-size: 2.5vh;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.botones:hover{
+  background-color: #404041;
+}
+
+.imagenes{
+  background: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  transition: 0.5s;
+  object-fit: cover;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.imagenes:hover{
+  background: #FFD700;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  padding: 0px;
+  object-fit: cover;
+}
+
+.imagenFondo::after {
+  content: "";
+  background: url('https://res.cloudinary.com/dplncudbq/image/upload/v1656097007/mias/h2_jy6hgj.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  filter: blur(5px);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+
+
+
+
+
+
+body {
+    line-height:1; 
+}
+
+.bordes{
+  border-radius: 0.3em;
+}
+
+.borde{
+  border: 1px solid #ffffffd0
+}
+
+.centrar{
+  display: flex;
+  justify-content: center;
+  text-align: center
+}
+
+.adaptarAncho{
+  width:auto;
+}
+
+.noSaltoDeLinea{
+  white-space: nowrap;
+  
+}
+
+.padre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.slider{
+  width: 100%;
+  height: 25px;
+  background: '#d3d3d3';
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  border-radius: 12px;
+  overflow: hidden;
+  appearance: none;
+  transition: left 0.5s ease;
+}
+
+.resaltar{
+  background: rgba(0, 0, 0, 0.295);
+  transition: 0.5s;
+  border-radius: 0px;
+}
+
+.resaltar:hover{
+  background: #0000007c;
+  border-radius: 0.7em;
+}
+
+
+
+
+
+
+.input-moderno {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border:1px solid white;
+  border-bottom: 2px solid #000000;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.7em;
+}
+
+.input-moderno:focus {
+  border-bottom: 5px solid #f44336;
+}
+
+.input-moderno::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+.select-moderno {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #000000;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0.7em;
+  appearance: none;
+  background-color: white;
+}
+
+.scroll {
+  overflow-x: auto;
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
+}
+
+.scroll::-webkit-scrollbar { 
+  display: none;  /* Para Chrome, Safari y Opera */
+}
+
+.resaltar {
+  cursor: pointer;
+}
+
+.resaltar:hover {
+  transition: 0.2s;
+  background-color: #404041;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+
+
+
+/* mio */
+html,
+body {
+  color: white;
+  padding: 0;
+  margin: 0;
+  font-size: 2.5vh;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+h1, h2, h3, h4, h5{
+  margin: 0px;
+}
+
+
+.linea-horizontal {
+  border-top: 1px solid black; 
+  width: 100%; 
+  margin: 0; 
+}
+
+.color1{
+  background: #00070c;
+}
+
+.color2{
+  background: #120461;
+}
+
+.color3{
+  background: #404041;
+}
+
+.color4{
+  background: #163338;
+}
+
+.color5{
+  background: #f4f5f5;
+}
+
+.colorTranparencia{
+  background: #771212d0;
+}
+
+.colorLetra1{
+  color: #ffffff;
+}
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+  width: max-content;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.scrollVertical{
+  overflow: scroll; 
+}
+
+.scrollVertical::-webkit-scrollbar {
+  width: 0; /* Ocultar la barra de desplazamiento en navegadores basados en WebKit (Chrome, Safari) */
+}
+
+.efectoGirar {
+  transition: transform 3s ease;
+}
+
+.efectoGirar:hover {
+  transform: rotate(360deg);
+}
+
+.efectoFondoTransparente{
+  transition: box-shadow 0.3s; 
+  -webkit-box-shadow: 0px 3px 23px 0px rgba(0,0,0,0);
+  -moz-box-shadow: 0px 3px 23px 0px rgba(0,0,0,0);
+  box-shadow: 0px 3px 23px 0px rgba(0,0,0,0);
+}
+
+.efectoFondoTransparente:hover{
+  -webkit-box-shadow: 0px 3px 23px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 3px 23px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 3px 23px 0px rgba(0,0,0,0.75);
+}
+
+.efectoFondoColor{
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.efectoFondoColor:hover{
+  background-color: rgba(0, 0, 0, 0.541);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.miCirculoGiratorio {
+  
+  border: 8px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+.miContenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+
