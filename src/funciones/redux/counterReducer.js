@@ -15,7 +15,11 @@ const initialState = {
   'cooooo4':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
   'azzul4':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
   'davis4': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro4': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}
+  'otro4': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4},
+  'cooooo5':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
+  'azzul6':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
+  'davis7': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
+  'otro8': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}
 }
 };
 

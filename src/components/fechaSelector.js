@@ -40,7 +40,16 @@ export default function FechaSelector(props) {
 
     return (
         <div className='centrar' style={{width: '100%'}}>
-            <input type="date" value={fecha} onChange={manejarCambio} />
+            <input type="date" value={fecha} onChange={manejarCambio} style={{
+                border: 'none',
+                borderRadius: '4px',
+                padding: '10px',
+                fontSize: '16px',
+                boxShadow: '0px 3px 6px rgba(0,0,0,0.16)',
+                color: '#333',
+                backgroundColor: '#f8f8f8',
+                outline: 'none',
+            }} />
         </div>
     );
 }

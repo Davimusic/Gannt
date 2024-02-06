@@ -27,18 +27,44 @@ time, mark, audio, video {
     background:transparent;
 }
 
-
-H1{
-  font-size: 5vh;
+.sticky{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
-H2{
-  font-size: 2.5vh;
+.marco{
+  padding: 20px;
 }
 
-p{
-  font-size: 3.5vh;
+
+H1 {
+  font-size: 2vh;
 }
+
+H2 {
+  font-size: 1.5vh;
+}
+
+p {
+  font-size: 2vh;
+}
+
+@media (min-width: 1000px) {
+  /* Estilos para pantallas con un ancho de 1000px o más */
+  H1 {
+    font-size: 5vh;
+  }
+
+  H2 {
+    font-size: 2.5vh;
+  }
+
+  p {
+    font-size: 3.5vh;
+  }
+}
+
 
 .botones{
   background: rgb(0, 0, 0);
@@ -210,6 +236,8 @@ body {
 }
 
 
+
+
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section {
     display:block;
@@ -332,6 +360,10 @@ h1, h2, h3, h4, h5{
 
 .colorLetra1{
   color: #ffffff;
+}
+
+.transparencia{
+  background-color: #00000041;
 }
 
 

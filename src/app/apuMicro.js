@@ -56,7 +56,7 @@ export function ApuMicro(){
                 type="image/x-icon">
                 </link>
             </head>
-            <body className="imagenFondo">
+            <body className="imagenFondo marco">
                 <Menu></Menu> 
                 <div style={{ wordWrap: 'break-word'}}>
                     <GanttTable />
