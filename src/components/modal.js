@@ -1,6 +1,6 @@
 import Modal from 'react-modal';
 
-export function ModalUser({ isOpen, cerrarModal, contenido }) {
+export function ModalUser({ isOpen, cerrarModal, contenido, cerrar }) {
     return (
         <Modal
             isOpen={isOpen}
@@ -13,7 +13,9 @@ export function ModalUser({ isOpen, cerrarModal, contenido }) {
                 }
             }}
         >
-            {contenido}         
+            {contenido}
+            <button onClick={cerrar} className='botones'>cerrar</button>         
         </Modal>                
     );
 }
+

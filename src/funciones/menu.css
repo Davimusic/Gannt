@@ -1,0 +1,32 @@
+.dropdown {
+  position: fixed;
+  z-index: 1000;
+  transition: all 1s ease-in-out;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.dropdown.open {
+  width: 100vw;
+  height: 100vh;
+  margin-left: 0px;
+  margin-top: 0px;
+  border-radius: 0%;
+}
+
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}

@@ -1,26 +1,11 @@
 const initialState = {
   tasks: {
-  'cooooo':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
+  /*'cooooo':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
   'azzul':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
   'davis': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4},
-  'cooooo2':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
-  'azzul2':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
-  'davis2': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro2': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4},
-  'cooooo3':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
-  'azzul3':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
-  'davis3': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro3': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4},
-  'cooooo4':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
-  'azzul4':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
-  'davis4': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro4': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4},
-  'cooooo5':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
-  'azzul6':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
-  'davis7': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro8': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}
-}
+  'otro': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}*/},
+  objeto : {}, 
+  llavesProyectos: []
 };
 
 const counterReducer = (state = initialState, action) => {
@@ -29,7 +14,17 @@ const counterReducer = (state = initialState, action) => {
         return {
           ...state,
           tasks: action.payload, 
-        };                                                     
+        };  
+    case 'UPDATE_OBJETO':
+      return {
+        ...state,
+        objeto: action.payload, 
+      };
+    case 'UPDATE_LLAVES_PROYECTOS':
+      return {
+        ...state,
+        llavesProyectos: action.payload, 
+      };                                                         
     default:
       return state;
   }

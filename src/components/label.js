@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 export default function Label(props) {
     const [value, setValue] = useState(props.valor);
 
     const handleChange = (event) => {
-        setValue(event.target.value);
+        setValue(event.target.value)
         props.onValueChange(event.target.value);
-    };
+    };//dispatch({ type: 'UPDATE_TASKS', payload: newTasks })
 
     return (
         <div>
@@ -15,6 +16,7 @@ export default function Label(props) {
                 value={value}
                 onChange={handleChange}
                 style={{
+                    color: 'black',
                     width: '100%',
                     padding: '12px 20px',
                     margin: '8px 0',

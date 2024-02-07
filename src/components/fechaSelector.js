@@ -39,7 +39,7 @@ export default function FechaSelector(props) {
     };
 
     return (
-        <div className='centrar' style={{width: '100%'}}>
+        <div style={{width: '100%'}}>
             <input type="date" value={fecha} onChange={manejarCambio} style={{
                 border: 'none',
                 borderRadius: '4px',

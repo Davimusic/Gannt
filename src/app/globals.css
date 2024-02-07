@@ -27,6 +27,24 @@ time, mark, audio, video {
     background:transparent;
 }
 
+.miCirculoGiratorio {
+  
+  border: 8px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+.miContenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
 .sticky{
   position: -webkit-sticky;
   position: sticky;
@@ -63,7 +81,23 @@ p {
   p {
     font-size: 3.5vh;
   }
+
 }
+
+.disposicionBarra{
+  
+  display: block;
+  height: 100px;
+  line-height: 100px; /* Añadido para centrar verticalmente */
+  text-align: center; /* Añadido para centrar horizontalmente */
+  overflow-y: auto;
+  scrollbar-width: none; /* Para Firefox */
+  -ms-overflow-style: none; /* Para Internet Explorer y Edge */
+}
+
+
+
+
 
 
 .botones{
@@ -212,7 +246,7 @@ body {
 }
 
 .select-moderno {
-  width: 100%;
+  width: 'fit-content';
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -227,6 +261,7 @@ body {
 
 .scroll {
   overflow-x: auto;
+  overflow-y: auto; /* Agregado */
   scrollbar-width: none; /* Para Firefox */
   -ms-overflow-style: none;  /* Para Internet Explorer y Edge */
 }
