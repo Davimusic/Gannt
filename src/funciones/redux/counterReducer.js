@@ -1,9 +1,9 @@
 const initialState = {
   tasks: {
-  /*'cooooo':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
+  'cooooo':{'diasDuracion':1, 'accionAnteriorObligatoria': 'inicio'}, 
   'azzul':{'diasDuracion':2, 'accionAnteriorObligatoria': 'inicio'}, 
   'davis': {'diasDuracion':4, 'accionAnteriorObligatoria': 'cooooo'},  
-  'otro': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}*/},
+  'otro': {'diasDuracion':4, 'diasDespuesDeInicioProyecto': 4}},
   objeto : {}, 
   llavesProyectos: []
 };

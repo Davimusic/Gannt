@@ -9,9 +9,11 @@ import { retornarMesesDelAno } from "@/funciones/generales/retornarMesesDelAno";
 import { retornarLlavesProyectos } from "@/funciones/generales/retornarLlavesProyectos";
 import Label from "@/components/label";
 import Switch from "./swicht";
+import MostrarInfo from "./mostrarInfo";
 import '../app/globals.css'
 
 import { useSelector, useDispatch } from 'react-redux';
+import Image from "next/image";
 
 
 export function GanttTable({}) {
@@ -87,6 +89,7 @@ export function GanttTable({}) {
     
             if (!response.ok) {
                 const message = `An error has occurred: ${response.status}`;
+                setMessage('error red')
                 throw new Error(message);
             }
     
@@ -94,6 +97,7 @@ export function GanttTable({}) {
             console.log(result);
             actualizarObjetoLlaves(result[0]['gannt'])
         } catch (error) {
+            setMessage('error red')
             console.error('Error obteniendo los proyectos:', error);
         }
     }
@@ -108,7 +112,7 @@ export function GanttTable({}) {
     
 
     useEffect(() => {
-        obtenerTodosLosProyectos()
+        //obtenerTodosLosProyectos()
         setGannt(retornarFechasAno());
     }, []);
 
@@ -406,6 +410,11 @@ export function GanttTable({}) {
     }
 
     function renderizarTabla(){ 
+        if(message === 'error red'){
+            alert('error de entrada');
+            return abrirModal('cfcfcf')
+        }
+
         if(Object.keys(tasks).length === 0){
             return( <div className="miContenedor">
                         <div className="miCirculoGiratorio"></div>
@@ -448,7 +457,7 @@ export function GanttTable({}) {
                     } else {
                     color=''
                     }
-                    elementosHijo.push(<div onClick={()=> resaltarColumna(valor)} className={`resaltar ${color === 'color4' || color === 'color2' ? color : actividadResaltadaVertical === `${monthName}${soloGannt}` || actividadResaltada === valor ? 'transparencia' : color} `} style={{height:`${alto}px`,marginTop:'10px',marginBottom:'10px',display:'flex',width:`${value}px`,transition:'width 0.5s ease', transition:'height 0.5s ease'}} key={`${valor}-${u}`} title={` ${valor}, ${monthName} ${soloGannt} ${anoEnUso}`}>hihih</div>)
+                    elementosHijo.push(<div onClick={()=> resaltarColumna(valor)} className={`resaltar ${color === 'color4' || color === 'color2' ? color : actividadResaltadaVertical === `${monthName}${soloGannt}` || actividadResaltada === valor ? 'transparencia' : color} `} style={{height:`${alto}px`,marginTop:'10px',marginBottom:'10px',display:'flex',width:`${value}px`,transition:'width 0.5s ease', transition:'height 0.5s ease'}} key={`${valor}-${u}`}><MostrarInfo height={`${alto}px`} width={`${value}px`} informacion={`${valor}, ${monthName} ${soloGannt}, ${anoEnUso}`}/></div>)
                 }
                 }
                 if(monthName!==currentMonth){
@@ -456,50 +465,41 @@ export function GanttTable({}) {
                 elementosPadre.push(<>
                                         <div key={`${u}`} style={{display:'block'}}>
                                             {elementosHijo}
-                                            <p onClick={()=> resaltarFila(monthName, soloGannt)} className="color2 bordes" style={{height:`${alto}px`, marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p>
+                                            <p onClick={()=> resaltarFila(monthName, soloGannt)} className="color2 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p>
                                             <p className="color2 bordes" style={{ marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}} ref={refs[currentMonth]}>{currentMonth}</p>
                                         </div>
                                     </>)
                 } else {
                 elementosPadre.push(<div key={`${u}`} style={{display:'block'}}>
                                         {elementosHijo}
-                                        <p onClick={()=> resaltarFila(monthName, soloGannt)} className="color1 bordes" style={{height:`${alto}px`, marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p>
+                                        <p onClick={()=> resaltarFila(monthName, soloGannt)} className="color1 bordes" style={{marginBottom:'10px',padding:'10px',width:`${value}px`,transition:'width 0.5s ease'}}>{soloGannt}</p>
                                     </div>)
                 }
             }
-            return  <>
-                        <div className="scroll disposicionBarra">
-                            <div>
-                                <CreateSelect name={'llavesproyecto'} value={proyectoEnUso} options={llavesProyectos} event={(event) => mostrarProyecto(event.target.value)}/>
-                            </div>
-                            <div>
-                                <CreateSelect name={'meses'} value={vistaMes} options={retornarMesesDelAno()} event={(event) => mostrarAno(event.target.value)}/>
-                            </div>
-                            <div>
-                                <FechaSelector fechaInicial={anoEnUso+fechaInicio} onFechaChange={(nuevaFecha)=>nuevaFechaInicio(nuevaFecha)}/>
-                            </div>
-                            <div>
-                                <button onClick={()=> nuevaActividad()} className="botones" >nueva actividad</button>
-                            </div>
-                            <div>
-                                <button onClick={()=> guardarProyecto()} className="botones" >Guardar</button>
-                            </div>
-                            <div>
-                                <button onClick={()=> NuevoProyecto()} className="botones" >crear nuevo proyecto</button>
-                            </div>    
+            return  <div style={{height: '90vh'}}>
+                        <div className=" disposicionBarra">
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'proyetco actual'} contenido={<CreateSelect name={'llavesproyecto'} value={proyectoEnUso} options={llavesProyectos} event={(event) => mostrarProyecto(event.target.value)}/>}/></div>
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'vista mes'} contenido={<CreateSelect  name={'meses'} value={vistaMes} options={retornarMesesDelAno()} event={(event) => mostrarAno(event.target.value)}/>}/></div>
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'fecha inicio proyecto'} contenido={<FechaSelector fechaInicial={anoEnUso+fechaInicio} onFechaChange={(nuevaFecha)=>nuevaFechaInicio(nuevaFecha)}/>}/></div>
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'nueva actividad'} contenido={<Image onClick={()=> nuevaActividad()} src='https://res.cloudinary.com/dplncudbq/image/upload/v1706024045/crearNuevoObjeto_o9hw7f.png' width={50} height={50} />}/></div>
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'guardar proyecto'} contenido={<Image onClick={()=> guardarProyecto()} src='https://res.cloudinary.com/dplncudbq/image/upload/v1706024045/save_pmx5wo.png' width={50} height={50} />}/></div>
+                                <div><MostrarInfo width={'50px'} height={'50px'} informacion={'nuevo proyecto'} contenido={<Image onClick={()=> NuevoProyecto()} src='https://res.cloudinary.com/dplncudbq/image/upload/v1706024045/crearNuevoObjetoMatematico_gnxugb.png' width={50} height={50} />}/></div>
                         </div>
-                        <div className="scroll" style={{height: '60vh', marginTop: '20px', marginBottom: '20px'}}>
-                            <button onClick={()=> contenedorLlaves()} className="botones sticky" style={{zIndex: '10000', display: modalIsOpen === false ? 'flex' : 'none'}} >Botón</button>
-                            <div className="color5 bordes " style={{display:'flex'}}>
+                        <div className="scroll" style={{height: '70vh', marginTop: '20px', marginBottom: '20px'}}>
+                            <div className="color5 bordes " style={{display:'flex', height: '100%'}}>
                                 {soloLLaves(tasks)}
-                                <div className="scroll" style={{display:'flex',width: widthContenedorLlaves === '0px' ? '99%' : '80%'}}>{elementosPadre}</div>
+                                <div style={{display:'block',width: widthContenedorLlaves === '0px' ? '99%' : '80%'}}>
+                                    <div className="scroll" style={{display:'flex'}}>{elementosPadre}</div>
+                                    <MostrarInfo width={'fit-content'} height={'fit-content'} informacion={'mostrar editores actividades'} contenido={<Image onClick={()=> contenedorLlaves()} className="sticky color5" style={{zIndex: '10000', display: modalIsOpen === false ? 'flex' : 'none'}} src='https://res.cloudinary.com/dplncudbq/image/upload/v1707423761/expand_dgon6g.png' width={50} height={50} />}/>
+                                </div>
                             </div>
                             <ModalUser isOpen={modalIsOpen} cerrarModal={cerrarModal} contenido={modalContent} cerrar={()=> setModalIsOpen(false)}/>
                         </div>
-                        <input className="slider" type="range" min="20" max="50" value={alto} onChange={handleChangeAlto}/>
-                        <input className="slider" type="range" min="20" max="300" value={value} onChange={handleChange}/>
-                        
-                    </>
+                        <div style={{height: '10vh'}}>
+                            <MostrarInfo width={'100%'} height={'fit-content'} informacion={'cambiar alto barras'} contenido={<input className="slider" type="range" min="20" max="50" value={alto} onChange={handleChangeAlto}/>}/>
+                            <MostrarInfo width={'100%'} height={'fit-content'} informacion={'cambiar ancho barras'} contenido={<input className="slider" type="range" min="20" max="300" value={value} onChange={handleChange}/>}/>
+                        </div>                        
+                    </div>
             }
     }
     

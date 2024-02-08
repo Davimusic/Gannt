@@ -9,7 +9,8 @@ export function ModalUser({ isOpen, cerrarModal, contenido, cerrar }) {
                 content: {
                     background: 'black',
                     color: 'white',
-                    borderRadius:' 0.7em'
+                    borderRadius:' 0.7em',
+                    
                 }
             }}
         >
@@ -18,4 +19,6 @@ export function ModalUser({ isOpen, cerrarModal, contenido, cerrar }) {
         </Modal>                
     );
 }
+
+
 
